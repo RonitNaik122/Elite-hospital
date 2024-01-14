@@ -1,0 +1,103 @@
+<html>
+<head>
+	<title> Application Form </title>
+	
+	<link href="css/style.css" type="text/css" rel="stylesheet">
+	
+</head>
+
+<body>
+<div class="top">
+		<div>
+		 Contact Us +91 96222 20000 / 01 | elitehospital@gmail.com 
+		</div>
+	</div>
+	
+
+<div class="container">
+		
+				
+				<form onsubmit="SendEmail(); reset(); return false;">
+				<h2>Make your registration</h2>
+									
+					
+						
+							<input id="name" input type="text" placeholder="Full Name" required>
+<input type="text" id="address" name="address" placeholder=" Flat No., Appartment Name, Street Name, Landmark" required>
+							
+						<input id="email" input type="text" placeholder="Email Id" required>
+							 <select id="sex" name="sex" >
+                						<option value="m">Male</option>
+               						<option value="f">Female</option>
+               						 <option value="o">Other</option>
+           						 </select>
+							<input type="text" id="bloodgroup" name="bloodgroup" placeholder="Enter your Blood Group" required>
+
+							<input id="mobile" input type="text" placeholder="Mobile No" required>
+<input type="text" id="phonenumber" name="phonenumber" placeholder=" +91 - " required>
+						<input type="date" id="DOB" name="DOB" placeholder="  " required>	
+					 	<input id="app" input type="text" placeholder="appointment date" required>
+					
+					
+						
+						
+						 
+				
+						
+							
+<h4>How can we help you?</h4>
+							<textarea id="message" rows="4" placeholder="How can we help you?" border="1"> 
+</textarea>					
+					<h2>Click here to send mail</h2>
+							<button type="submit"> Send mail</button>
+
+							
+							
+                            
+								<h2>Click here to Upload your image </h2>
+							<button type="button" ><a href="http://127.0.0.1:5500/website/image.html"> Upload Image </button></a>
+						    
+
+
+					
+				
+			</form>	
+		
+	</div>
+
+	<div class="nav_down">
+		<div>
+		 &copy; ELITE Hospital, site designed & developed by ARUN
+		</div>
+	</div>
+
+<script src = "https://smtpjs.com/v3/smtp.js"></script>
+<script>
+	function SendEmail(){
+          Email.send({
+    	SecureToken : "41f6745a-4e10-4b5a-ad3f-442eb415256b ",
+    	To : 'badalusi280@gmail.com',
+    	From : "badalusi280@gmail.com",
+    	Subject : "New content for enquiry",
+    	Body : "Name:" +document.getElementById("name").value
+		 + "<br> Address:" +document.getElementById("address").value
+            	+ "<br> Email:" +document.getElementById("email").value
+		+ "<br> Phone number:" +document.getElementById("mobile").value
+		+ "<br> Gender:" +document.getElementById("sex").value
+		+ "<br> Blood group:" +document.getElementById("bloodgroup").value
+		+ "<br> Tele-phone number:" +document.getElementById("phonenumber").value
+		+ "<br> Date of Birth:" +document.getElementById("DOB").value
+		+ "<br> Appointment:" +document.getElementById("app").value
+		
+		+ "<br> Message:" +document.getElementById("message").value
+}).then(
+  message => alert("Message sent succesfully")
+);
+}
+</script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="image.css">
+    </head>
+    <body>
+        <div class="main-scr">
+            
+                <form>
+                    <input type="file" id="fileInput"><br><br>
+                    <input type="button" value="Send" onclick="sendEmail()">
+                    
+                      
+                    <button type="submit" formaction="http://127.0.0.1:5500/website/thankyou.html"> Done </button>
+                    
+                  </form>
+                  <script src="https://smtpjs.com/v3/smtp.js"></script>
+                  <script>
+                    function sendEmail() {
+                      var file = document.getElementById("fileInput").files[0];
+                      var reader = new FileReader();
+                      reader.readAsDataURL(file);
+                      reader.onload = function () {
+                        Email.send({
+                          SecureToken: "41f6745a-4e10-4b5a-ad3f-442eb415256b",
+                          To: "badalusi280@gmail.com",
+                          From: "badalusi280@gmail.com",
+                          Subject: "File Attachment",
+                          Body: "Please find the attached file.",
+                          Attachments: [
+                            {
+                              name: file.name,
+                              data: reader.result.split(',')[1]
+                            }
+                          ]
+                        }).then(
+                          message => alert(message)
+                        );
+                      };
+                    }
+                  </script>
+            
+        </div> 
+    </body>
+</html>
